@@ -5,15 +5,7 @@ import Tag from './Tag';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-function setup() {
-  const props = {
-    children: 'test',
-    style: {
-      backgroundColor: 'red',
-      color: 'white',
-    },
-  };
-
+function setup(props = {}) {
   const enzymeWrapper = mount(<Tag {...props} />);
 
   return {
@@ -24,20 +16,38 @@ function setup() {
 
 describe('Tag Component', () => {
   it('should render self with props.children', () => {
-    const { enzymeWrapper } = setup();
+    const props = {
+      children: 'test',
+      style: {
+        backgroundColor: 'red',
+        color: 'white',
+      },
+    };
+    const { enzymeWrapper } = setup(props);
 
     expect(enzymeWrapper.find('div.ui.small.label').text()).toBe('test');
   });
 
   it('should merge props.style into base style prop', () => {
-    const { enzymeWrapper } = setup();
+    const { enzymeWrapper } = setup({
+      children: 'test',
+    });
 
-    const baseStyle = {
-      borderRadius: 15,
-      fontWeight: 'bold',
-    };
+    const enzymeWrapper2 = setup({
+      children: 'test',
+      style: {
+        backgroundColor: 'red',
+        color: 'white',
+      },
+    });
 
-    expect(enzymeWrapper.find('div.ui.small.label').props().style).toEqual({
+    const enzymeWrapperWithStyle = enzymeWrapper2.enzymeWrapper;
+
+    const baseStyle = enzymeWrapper.find('div.ui.small.label').props().style;
+
+    expect(
+      enzymeWrapperWithStyle.find('div.ui.small.label').props().style,
+    ).toEqual({
       ...baseStyle,
       backgroundColor: 'red',
       color: 'white',
