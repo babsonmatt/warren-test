@@ -1,8 +1,8 @@
 import normalize from 'json-api-normalizer';
 import companies from './data/companies.json';
 
-export function loadCompanies(userId) {
-  return function(dispatch, getState) {
+export function loadCompanies() {
+  return function(dispatch) {
     dispatch({
       type: 'LOAD_COMPANIES_REQUEST',
     });
