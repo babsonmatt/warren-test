@@ -7,7 +7,7 @@ Enzyme.configure({ adapter: new Adapter() });
 
 function setup() {
   const props = {
-    addTodo: jest.fn(),
+    onSearch: jest.fn(),
     companies: [
       {
         id: 1,
@@ -49,7 +49,7 @@ describe('components', () => {
       expect(enzymeWrapper.find('div.sub.header').text()).toBe(
         'Showing 1-2 of 2',
       );
-      
+
       // header and 1 row per company
       expect(enzymeWrapper.find('tr').length).toBe(3);
 
@@ -76,6 +76,12 @@ describe('components', () => {
           .at(2)
           .text(),
       ).toBe('Unregistered');
+    });
+
+    it('should call onSearch if the search input has the onChange event fired', () => {
+      const { enzymeWrapper, props } = setup();
+      enzymeWrapper.find('input').simulate('change');
+      expect(props.onSearch.mock.calls.length).toBe(1);
     });
   });
 });
