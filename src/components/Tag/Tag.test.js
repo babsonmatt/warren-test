@@ -18,10 +18,6 @@ describe('Tag Component', () => {
   it('should render self with props.children', () => {
     const props = {
       children: 'test',
-      style: {
-        backgroundColor: 'red',
-        color: 'white',
-      },
     };
     const { enzymeWrapper } = setup(props);
 
@@ -42,7 +38,6 @@ describe('Tag Component', () => {
     });
 
     const enzymeWrapperWithStyle = enzymeWrapper2.enzymeWrapper;
-
     const baseStyle = enzymeWrapper.find('div.ui.small.label').props().style;
 
     expect(
