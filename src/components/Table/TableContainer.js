@@ -19,7 +19,7 @@ class TableContainer extends React.Component {
       type: 'SEARCH',
       search,
     });
-  }, 300);
+  }, 100);
 
   render() {
     const { filteredCompanies } = this.props;
