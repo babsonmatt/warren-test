@@ -64,9 +64,9 @@ const filterCompanies = (companies, search) => {
     const representative = `${company.firstName} ${company.lastName}`;
     return (
       company.name.toLowerCase().includes(lcaseSearch) ||
-      company.email.includes(lcaseSearch) ||
-      representative.includes(lcaseSearch) ||
-      company.created.includes(lcaseSearch)
+      company.email.toLowerCase().includes(lcaseSearch) ||
+      representative.toLowerCase().includes(lcaseSearch) ||
+      company.created.toLowerCase().includes(lcaseSearch)
     );
   });
 };
