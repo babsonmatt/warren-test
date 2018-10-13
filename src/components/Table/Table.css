@@ -1,0 +1,34 @@
+/* .header {
+  background-color: #fafbff;
+} */
+
+.attached-header {
+  background-color: #f5f7ff !important;
+  border: 1px solid #d8deee !important;
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+table {
+  border: 1px solid #e7ebf7 !important;
+}
+
+th {
+  background-color: #fafbff !important;
+  color: #929fc3 !important;
+  text-transform: uppercase !important;
+  font-size: 10px;
+}
+
+td {
+  color: #929fc3;
+  border-color: #e7ebf7 !important;
+  font-size: 12px;
+}
+
+div.header {
+  color: #929fc3 !important;
+  font-size: 12px !important;
+}
