@@ -7,7 +7,9 @@ export function loadCompanies() {
       type: 'LOAD_COMPANIES_REQUEST',
     });
 
-    new Promise((resolve, reject) => setTimeout(() => resolve(companies), 500))
+    return new Promise((resolve, reject) =>
+      setTimeout(() => resolve(companies), 500),
+    )
       .then(response => {
         dispatch({
           type: 'LOAD_COMPANIES_SUCCESS',
