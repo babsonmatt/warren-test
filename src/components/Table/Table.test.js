@@ -40,7 +40,7 @@ function setup() {
   };
 }
 
-describe('Table', () => {
+describe('Table Component', () => {
   it('should render self and subcomponents', () => {
     const { enzymeWrapper } = setup();
 
