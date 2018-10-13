@@ -37,9 +37,15 @@ export default class FilterableTable extends React.Component {
           </Table.Header>
 
           <Table.Body>
-            {companies.map(company => {
-              return <Row key={company.id} company={company} />;
-            })}
+            {companies.length > 0 ? (
+              companies.map(company => {
+                return <Row key={company.id} company={company} />;
+              })
+            ) : (
+              <Table.Row>
+                <Table.Cell>No results found.</Table.Cell>
+              </Table.Row>
+            )}
           </Table.Body>
         </Table>
       </div>

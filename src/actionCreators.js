@@ -7,26 +7,18 @@ export function loadCompanies(userId) {
       type: 'LOAD_COMPANIES_REQUEST',
     });
 
-    new Promise((resolve, reject) =>
-      setTimeout(() => resolve(companies), 500),
-    ).then(response => {
-      dispatch({
-        type: 'LOAD_COMPANIES_SUCCESS',
-        response: normalize(response),
-      });
-    });
-
-    // fetch(`http://myapi.com/users/${userId}/companies`).then(
-    //   response =>
-    //     dispatch({
-    //       type: 'LOAD_COMPANIES_SUCCESS',
-    //       response,
-    //     }),
-    //   error =>
-    //     dispatch({
-    //       type: 'LOAD_COMPANIES_FAILURE',
-    //       error,
-    //     }),
-    // );
+    new Promise((resolve, reject) => setTimeout(() => resolve(companies), 500))
+      .then(response => {
+        dispatch({
+          type: 'LOAD_COMPANIES_SUCCESS',
+          response: normalize(response),
+        });
+      })
+      .catch(e =>
+        dispatch({
+          type: 'LOAD_COMPANIES_FAILURE',
+          e,
+        }),
+      );
   };
 }
