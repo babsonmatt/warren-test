@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'semantic-ui-react';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import capitalize from 'lodash/capitalize';
@@ -6,6 +7,10 @@ import Tag from '../Tag';
 import './Table.css';
 
 export default class TableRow extends React.Component {
+  static propTypes = {
+    company: PropTypes.object.isRequired,
+  };
+
   render() {
     const { company } = this.props;
 
