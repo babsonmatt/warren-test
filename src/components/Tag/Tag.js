@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Label } from 'semantic-ui-react';
 
-export default props => (
+const Tag = props => (
   <Label
     size="small"
     style={{
@@ -13,3 +14,9 @@ export default props => (
     {props.children}
   </Label>
 );
+
+Tag.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Tag;

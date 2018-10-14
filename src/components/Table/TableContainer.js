@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import debounce from 'lodash/debounce';
@@ -7,6 +8,11 @@ import Table from './Table';
 import './Table.css';
 
 class TableContainer extends React.Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    filteredCompanies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  };
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(loadCompanies());

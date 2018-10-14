@@ -1,9 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Header, Segment, Table, Input } from 'semantic-ui-react';
 import Row from './Row';
 import './Table.css';
 
 export default class FilterableTable extends React.Component {
+  static propTypes = {
+    companies: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onSearch: PropTypes.func.isRequired,
+  };
+
   render() {
     const { companies, onSearch } = this.props;
     const companyCount = companies.length;
