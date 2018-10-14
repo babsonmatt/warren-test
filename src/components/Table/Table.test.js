@@ -51,30 +51,6 @@ describe('Table Component', () => {
 
     // header and 1 row per company
     expect(enzymeWrapper.find('tr').length).toBe(3);
-
-    // make sure we're showing the 'Customer' Tag for the first company
-    expect(
-      enzymeWrapper
-        .find('div.ui.small.label')
-        .first()
-        .text(),
-    ).toBe('Customer');
-
-    // make sure we're showing the 'Vendor' Tag for the second company
-    expect(
-      enzymeWrapper
-        .find('div.ui.small.label')
-        .at(1)
-        .text(),
-    ).toBe('Vendor');
-
-    // make sure we're showing the 'Unregistered' Tag for the second company
-    expect(
-      enzymeWrapper
-        .find('div.ui.small.label')
-        .at(2)
-        .text(),
-    ).toBe('Unregistered');
   });
 
   it('should call onSearch if the search input has the onChange event fired', () => {
